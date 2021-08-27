@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Recipe-Find {% endblock %}
+{% block content %}
+<br><br><br>
+<center>
+    <form action='' method='POST'>
+        {% csrf_token %}
+        {{form.media}}
+        {{form.as_p}}
+        <input class='btn btn-outline-secondary' type='submit' value='Submit'>
+    </form>
+
+{% if exist == True %}
+<h3>Result:</h3>
+{% for val in result %}
+{{val.name}}
+{% endfor %}
+{% else %}
+<h2>There are no results available in your database!</h2>
+
+{% endif %}
+
+
+</center>
+{% endblock %}

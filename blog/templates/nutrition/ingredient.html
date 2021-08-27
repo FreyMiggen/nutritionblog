@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredient-Add</title>
+</head>
+<body>
+<form action="" method="POST">
+{% csrf_token %}
+<label for="fname">Name:</label><br>
+  <input type="text" id="fname" name="name"><br>
+    {% csrf_token %}
+  <label for="lname">Quantity:</label><br>
+  <input type="text" id="lname" name="quantity">
+  {% csrf_token %}
+  <p>Please select the measurement:</p>
+    <input type="radio" id="gram" name="measure" value="gram">
+    <label for="gram">Gram</label><br>
+    <input type="radio" id="ml" name="measure" value="ml">
+    <label for="ml">ML</label><br>
+
+  <br>
+  <br>
+
+ <button class=" btn btn-outline-secondary " type="submit" name='form'>Submit</button>
+</form>
+{% if kcal %}
+
+kcal: {{kcal}}
+
+{% endif %}
+<br>
+<br>
+{% if add == True %}
+
+  Do you want to add this ingredient to your dataset?
+  <input class='btn btn-primary' name="subject" type="submit" value="yes">Yes</button>
+  <input class='btn btn-primary' name="subject" type="submit" value="no">No</button>
+
+{% endif %}
+  
+
+</body>
+</html>
